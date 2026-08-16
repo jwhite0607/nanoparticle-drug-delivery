@@ -174,6 +174,16 @@ The sensitivity analysis showed that:
 - **Polymer degradation:** Increasing degradation rate accelerates predicted drug release.
 - **Model calibration:** Version 3 substantially improves agreement with the experimental release profile.
 - **Optimization:** The identified parameter combination produced the lowest modeled error among the evaluated configurations.
+## How to Run
+
+### Requirements
+
+Python 3.10+ is recommended.
+
+Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
 ## Project Structure
 
 ```text
