@@ -138,15 +138,42 @@ Increasing polymer degradation rate decreases predicted release time because fas
 
 ## Key Results
 
-The model demonstrates that:
+### Model Accuracy
 
-- Nanoparticle size strongly influences release kinetics.
-- Temperature affects the rate of release.
-- Environmental pH significantly changes predicted release timing.
-- Polymer degradation rate influences both t50 and t90.
-- Model calibration substantially improves agreement with experimental data.
-- The optimized configuration produced the lowest modeled error among the evaluated parameter combinations.
+The calibrated Version 3 model demonstrated strong agreement with the available experimental data:
 
+| Performance Metric | Result |
+|---|---:|
+| RMSE | 7.144 percentage points |
+| MAE | 4.452 percentage points |
+| R² | 0.9610 |
+
+The R² of 0.9610 indicates that the calibrated model captures the majority of the variation observed in the available experimental release data.
+
+### Optimized Operating Conditions
+
+The optimization analysis identified the lowest-error configuration within the evaluated parameter space:
+
+| Parameter | Optimized Value |
+|---|---:|
+| Nanoparticle radius | 200 nm |
+| Temperature | 30 °C |
+| Environmental pH | 7.0 |
+| Polymer degradation rate | 0.005 1/hour |
+| Predicted t50 | 13.83 hours |
+| Predicted t90 | 35.07 hours |
+| Optimization error | 4.205 |
+
+### Engineering Findings
+
+The sensitivity analysis showed that:
+
+- **Nanoparticle radius:** Larger particles generally produce slower drug release.
+- **Temperature:** Increasing temperature decreases predicted release time.
+- **Environmental pH:** Increasing pH decreases predicted release time within the modeled range.
+- **Polymer degradation:** Increasing degradation rate accelerates predicted drug release.
+- **Model calibration:** Version 3 substantially improves agreement with the experimental release profile.
+- **Optimization:** The identified parameter combination produced the lowest modeled error among the evaluated configurations.
 ## Project Structure
 
 ```text
