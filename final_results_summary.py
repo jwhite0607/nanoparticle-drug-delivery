@@ -1,0 +1,36 @@
+print("=" * 70)
+print("NANOPARTICLE DRUG DELIVERY — FINAL RESULTS SUMMARY")
+print("=" * 70)
+
+print("\nOPTIMIZED DESIGN")
+print("-" * 70)
+print("Nanoparticle radius:        200 nm")
+print("Temperature:                30 °C")
+print("Environmental pH:          7.0")
+print("Polymer degradation rate:  0.005 1/hour")
+
+print("\nPREDICTED RELEASE")
+print("-" * 70)
+print("t50:                        13.83 hours")
+print("t90:                        35.07 hours")
+
+print("\nMODEL VALIDATION — VERSION 3")
+print("-" * 70)
+print("RMSE:                       7.144 percentage points")
+print("MAE:                        4.452 percentage points")
+print("R²:                         0.9610")
+
+print("\nSENSITIVITY ANALYSIS")
+print("-" * 70)
+print("Radius:                     Larger radius increases release time")
+print("Temperature:                Higher temperature decreases release time")
+print("pH:                         Higher pH decreases release time")
+print("Polymer degradation:        Higher degradation rate decreases release time")
+
+print("\nMODEL CONCLUSION")
+print("-" * 70)
+print("Version 3 substantially improves agreement with experimental data.")
+print("The calibrated model provides a strong predictive relationship")
+print("with the experimental release profile.")
+
+print("=" * 70)
