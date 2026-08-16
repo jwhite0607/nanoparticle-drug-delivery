@@ -1,5 +1,43 @@
 # Nanoparticle Drug Delivery Modeling & Optimization
 
+> **Computational engineering model for controlled drug release from polymeric nanoparticles**
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
+[![Model](https://img.shields.io/badge/Model-Version%203-orange)]()
+[![R²](https://img.shields.io/badge/R²-0.9610-green)]()
+[![Status](https://img.shields.io/badge/Status-Complete-success)]()
+
+---
+
+## Project Summary
+
+This project develops a computational engineering model for predicting controlled drug release from polymeric nanoparticles.
+
+The model combines:
+
+- **Mathematical modeling**
+- **Model calibration**
+- **Experimental validation**
+- **Sensitivity analysis**
+- **Parameter optimization**
+
+The final calibrated **Version 3 model achieved an R² of 0.9610** against the available experimental release data.
+
+### Final Optimized Configuration
+
+| Parameter | Value |
+|---|---:|
+| Nanoparticle radius | **200 nm** |
+| Temperature | **30 °C** |
+| Environmental pH | **7.0** |
+| Polymer degradation rate | **0.005 1/hour** |
+| Predicted t50 | **13.83 hours** |
+| Predicted t90 | **35.07 hours** |
+| Optimization error | **4.205** |
+
+---
+# Nanoparticle Drug Delivery Modeling & Optimization
+
 ## Overview
 
 This project develops a computational engineering model for predicting controlled drug release from polymeric nanoparticles.
