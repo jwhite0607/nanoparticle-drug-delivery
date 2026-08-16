@@ -47,7 +47,47 @@ The calibrated Version 3 model achieved:
 | RMSE | 7.144 percentage points |
 | MAE | 4.452 percentage points |
 | R² | 0.9610 |
+## Final Model Performance
 
+| Metric | Result |
+|---|---:|
+| RMSE | 7.144 percentage points |
+| MAE | 4.452 percentage points |
+| R² | 0.9610 |
+
+## Experimental Validation
+
+### Experimental Data vs. Version 3 Model
+
+The calibrated Version 3 model was compared against experimental drug-release measurements. The final model achieved an R² of 0.9610.
+
+![Experimental vs Version 3 Model](experimental_vs_model_v3.png)
+
+## Sensitivity Analysis
+
+### Nanoparticle Radius
+
+![Sensitivity to Nanoparticle Radius](sensitivity_v3_radius.png)
+
+Larger nanoparticle radius results in longer predicted release times.
+
+### Temperature
+
+![Sensitivity to Temperature](sensitivity_v3_temperature.png)
+
+Increasing temperature decreases predicted release time.
+
+### Environmental pH
+
+![Sensitivity to Environmental pH](sensitivity_v3_pH.png)
+
+Increasing environmental pH decreases predicted release time.
+
+### Polymer Degradation
+
+![Sensitivity to Polymer Degradation](sensitivity_v3_degradation.png)
+
+Increasing polymer degradation rate decreases predicted release time.
 An R² of 0.9610 indicates a strong agreement between the calibrated model and the available experimental release data.
 
 ## Experimental Validation
