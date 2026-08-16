@@ -1,6 +1,5 @@
-import numpy as np
-
 from model_v3 import simulate_calibrated_release
+import numpy as np
 
 
 def test_release_output_is_valid():
@@ -124,3 +123,17 @@ def test_optimized_configuration_runs():
 
     assert len(time) == len(release)
     assert 0 <= release[-1] <= 100
+    
+
+def test_calibrated_release_is_valid():
+    time, release = simulate_calibrated_release(
+        radius_nm=200,
+        temperature_celsius=30,
+        pH=7.0,
+        degradation_rate_per_hour=0.005
+    )
+
+    assert len(time) == len(release)
+    assert len(time) > 0
+    assert release.min() >= 0
+    assert release.max() <= 100
