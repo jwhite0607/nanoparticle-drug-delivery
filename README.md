@@ -159,3 +159,11 @@ The project is designed to reproduce the model validation and analysis results f
 
 ```bash
 python -m pip install -r requirements.txt
+## Reproducibility
+
+The project is designed to reproduce the model validation and analysis results from the command line.
+
+### Install dependencies
+
+```bash
+python -m pip install -r requirements.txt
