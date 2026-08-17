@@ -153,15 +153,7 @@ Current validation result:
 100% code coverage
 ## Reproducibility
 
-The project is designed to reproduce the model validation and analysis results from the command line.
-
-### Install dependencies
-
-```bash
-python -m pip install -r requirements.txt
-## Reproducibility
-
-The project is designed to reproduce the model validation and analysis results from the command line.
+The complete modeling, calibration, validation, sensitivity-analysis, and optimization workflow is implemented in Python and can be reproduced from the command line.
 
 ### Install dependencies
 
