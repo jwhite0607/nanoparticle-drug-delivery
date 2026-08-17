@@ -1,5 +1,34 @@
 # Nanoparticle Drug Delivery Modeling & Optimization
 
+## Project Overview
+
+This project develops a computational model for predicting controlled drug release from polymeric nanoparticles. The workflow combines mathematical modeling, experimental-data calibration, validation, sensitivity analysis, and parameter optimization to investigate how nanoparticle and environmental properties influence drug-release behavior.
+
+The final calibrated Version 3 model was evaluated against experimental release data and used to identify a low-error parameter configuration within the tested design space.
+### Key Results
+
+| Metric | Result |
+|---|---:|
+| R² | **0.9610** |
+| RMSE | **7.144 percentage points** |
+| MAE | **4.452 percentage points** |
+| Optimized nanoparticle radius | **200 nm** |
+| Optimized temperature | **30 °C** |
+| Optimized environmental pH | **7.0** |
+| Optimized polymer degradation rate | **0.005 1/hour** |
+### Key Results
+
+| Metric | Result |
+|---|---:|
+| R² | **0.9610** |
+| RMSE | **7.144 percentage points** |
+| MAE | **4.452 percentage points** |
+| Optimized nanoparticle radius | **200 nm** |
+| Optimized temperature | **30 °C** |
+| Optimized environmental pH | **7.0** |
+| Optimized polymer degradation rate | **0.005 1/hour** |
+# Nanoparticle Drug Delivery Modeling & Optimization
+
 [![Python CI](https://github.com/jwhite0607/nanoparticle-drug-delivery/actions/workflows/python-check.yml/badge.svg)](https://github.com/jwhite0607/nanoparticle-drug-delivery/actions)
 [![Tests](https://img.shields.io/badge/tests-18%20passed-brightgreen)](#validation)
 [![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](#validation)
