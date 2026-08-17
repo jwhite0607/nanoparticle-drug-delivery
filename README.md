@@ -1,258 +1,153 @@
 # Nanoparticle Drug Delivery Modeling & Optimization
 
-> **Computational engineering model for controlled drug release from polymeric nanoparticles**
+[![Python CI](https://github.com/jwhite0607/nanoparticle-drug-delivery/actions/workflows/python-check.yml/badge.svg)](https://github.com/jwhite0607/nanoparticle-drug-delivery/actions)
+[![Tests](https://img.shields.io/badge/tests-18%20passed-brightgreen)](#validation)
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](#validation)
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
-[![Model](https://img.shields.io/badge/Model-Version%203-orange)]()
-[![R²](https://img.shields.io/badge/R²-0.9610-green)]()
-[![Status](https://img.shields.io/badge/Status-Complete-success)]()
+## Overview
+
+A computational engineering framework for modeling, validating, and optimizing controlled drug release from polymeric nanoparticles.
+
+The project combines numerical diffusion modeling, temperature and pH effects, polymer degradation, experimental calibration, sensitivity analysis, and parameter optimization.
+
+> **Scope:** This repository contains a computational engineering model. It does not constitute experimental, preclinical, or clinical validation.
 
 ---
 
-## Project Summary
+## Key Results
 
-This project develops a computational engineering model for predicting controlled drug release from polymeric nanoparticles.
+The calibrated Version 3 model achieved:
 
-The model combines:
+| Metric | Result |
+|---|---:|
+| R² | **0.9610** |
+| RMSE | **7.144 percentage points** |
+| MAE | **4.452 percentage points** |
+| Automated tests | **18 passed** |
+| Code coverage | **100%** |
 
-- **Mathematical modeling**
-- **Model calibration**
-- **Experimental validation**
-- **Sensitivity analysis**
-- **Parameter optimization**
-
-The final calibrated **Version 3 model achieved an R² of 0.9610** against the available experimental release data.
-
-### Final Optimized Configuration
+### Optimized Configuration
 
 | Parameter | Value |
 |---|---:|
 | Nanoparticle radius | **200 nm** |
 | Temperature | **30 °C** |
-| Environmental pH | **7.0** |
+| pH | **7.0** |
 | Polymer degradation rate | **0.005 1/hour** |
 | Predicted t50 | **13.83 hours** |
 | Predicted t90 | **35.07 hours** |
 | Optimization error | **4.205** |
 
 ---
-# Nanoparticle Drug Delivery Modeling & Optimization
 
-## Overview
+## Engineering Model
 
-This project develops a computational engineering model for predicting controlled drug release from polymeric nanoparticles.
+The model represents controlled drug transport from a spherical nanoparticle using a diffusion-based formulation.
 
-The model investigates how nanoparticle properties and environmental conditions influence drug-release behavior through mathematical modeling, calibration, validation, sensitivity analysis, and optimization.
+### Temperature Dependence
 
-## Engineering Objectives
+Temperature effects are modeled using an Arrhenius relationship:
 
-The project investigates:
+\[
+D(T)=D_0\exp\left(-\frac{E_a}{RT}\right)
+\]
 
-1. How nanoparticle radius affects drug-release time
-2. How temperature affects drug release
-3. How environmental pH affects release
-4. How polymer degradation affects release
-5. How accurately the model reproduces experimental data
-6. What parameter combination minimizes model error
+### pH Dependence
 
-## Model Parameters
+A phenomenological ionization model is used to represent pH-dependent diffusion enhancement:
 
-- Nanoparticle radius
-- Temperature
-- Environmental pH
-- Polymer degradation rate
-
-## Model Development
-
-### Version 1
-
-Initial nanoparticle drug-release model developed from the governing relationships between diffusion, environmental conditions, and polymer degradation.
-
-### Version 2
-
-The model was refined to improve the representation of the initial burst-release behavior and overall release profile.
-
-### Version 3
-
-The final model incorporated calibration against experimental data and produced substantially improved predictive agreement.
-
-## Final Model Performance
-
-The calibrated Version 3 model achieved:
-
-| Metric | Result |
-|---|---:|
-| RMSE | 7.144 percentage points |
-| MAE | 4.452 percentage points |
-| R² | 0.9610 |
-## Final Model Performance
-
-| Metric | Result |
-|---|---:|
-| RMSE | 7.144 percentage points |
-| MAE | 4.452 percentage points |
-| R² | 0.9610 |
-
-## Experimental Validation
-
-### Experimental Data vs. Version 3 Model
-
-The calibrated Version 3 model was compared against experimental drug-release measurements. The final model achieved an R² of 0.9610.
-
-![Experimental vs Version 3 Model](experimental_vs_model_v3.png)
-
-## Sensitivity Analysis
-
-### Nanoparticle Radius
-
-![Sensitivity to Nanoparticle Radius](sensitivity_v3_radius.png)
-
-Larger nanoparticle radius results in longer predicted release times.
-
-### Temperature
-
-![Sensitivity to Temperature](sensitivity_v3_temperature.png)
-
-Increasing temperature decreases predicted release time.
-
-### Environmental pH
-
-![Sensitivity to Environmental pH](sensitivity_v3_pH.png)
-
-Increasing environmental pH decreases predicted release time.
+\[
+f_{pH}
+=
+1+
+(F_{max}-1)
+\frac{1}{1+10^{pK_a-pH}}
+\]
 
 ### Polymer Degradation
 
-![Sensitivity to Polymer Degradation](sensitivity_v3_degradation.png)
+Polymer degradation increases the effective diffusion coefficient over time:
 
-Increasing polymer degradation rate decreases predicted release time.
-An R² of 0.9610 indicates a strong agreement between the calibrated model and the available experimental release data.
+\[
+D(t)
+=
+D_0
+\left[
+1+
+A(1-e^{-kt})
+\right]
+\]
 
-## Experimental Validation
+The resulting system is solved numerically using SciPy's `solve_ivp` differential-equation solver with a BDF integration method.
 
-The model was evaluated against experimental measurements at:
+---
 
-- 0 hours
-- 1 hour
-- 24 hours
-- 48 hours
-- 72 hours
+## Model Components
 
-The Version 3 model substantially improved agreement with the experimental release profile compared with earlier model versions.
+The project includes:
 
-## Optimization
+- Spherical Fickian diffusion
+- Temperature-dependent diffusion
+- pH-dependent diffusion
+- Polymer degradation
+- Calibrated diffusion parameters
+- Experimental comparison
+- Sensitivity analysis
+- Parameter optimization
+- Release-profile generation
+- Automated regression testing
+- Continuous integration
 
-The optimization analysis identified the following lowest-error configuration:
+---
 
-| Parameter | Optimized Value |
-|---|---:|
-| Nanoparticle radius | 200 nm |
-| Temperature | 30 °C |
-| Environmental pH | 7.0 |
-| Polymer degradation rate | 0.005 1/hour |
-| Predicted t50 | 13.83 hours |
-| Predicted t90 | 35.07 hours |
-| Optimization error | 4.205 |
+## Results & Visualizations
 
-## Sensitivity Analysis
+### Experimental vs. Model
 
-The final model evaluates sensitivity to four major parameters.
+![Experimental vs Model](experimental_vs_model_v3.png)
 
-### Nanoparticle Radius
+### Release Profiles
 
-Increasing nanoparticle radius increases predicted drug-release time, with larger particles generally producing slower release.
+![Release Profiles](release_profiles.png)
 
-### Temperature
+### Diffusion Release Profiles
 
-Increasing temperature decreases predicted release time, indicating faster release under the modeled conditions.
+![Diffusion Release Profiles](diffusion_release_profiles.png)
 
-### Environmental pH
+### pH Sensitivity
 
-Increasing environmental pH decreases predicted release time within the modeled range.
+![pH Sensitivity](sensitivity_v3_pH.png)
 
-### Polymer Degradation
+### Temperature Sensitivity
 
-Increasing polymer degradation rate decreases predicted release time because faster polymer degradation accelerates drug release.
+![Temperature Sensitivity](sensitivity_v3_temperature.png)
 
-## Key Results
+### Radius Sensitivity
 
-### Model Accuracy
+![Radius Sensitivity](sensitivity_v3_radius.png)
 
-The calibrated Version 3 model demonstrated strong agreement with the available experimental data:
+### Degradation Sensitivity
 
-| Performance Metric | Result |
-|---|---:|
-| RMSE | 7.144 percentage points |
-| MAE | 4.452 percentage points |
-| R² | 0.9610 |
+![Degradation Sensitivity](sensitivity_v3_degradation.png)
 
-The R² of 0.9610 indicates that the calibrated model captures the majority of the variation observed in the available experimental release data.
+---
 
-### Optimized Operating Conditions
+## Validation
 
-The optimization analysis identified the lowest-error configuration within the evaluated parameter space:
+The project contains an automated `pytest` validation suite covering:
 
-| Parameter | Optimized Value |
-|---|---:|
-| Nanoparticle radius | 200 nm |
-| Temperature | 30 °C |
-| Environmental pH | 7.0 |
-| Polymer degradation rate | 0.005 1/hour |
-| Predicted t50 | 13.83 hours |
-| Predicted t90 | 35.07 hours |
-| Optimization error | 4.205 |
+- Release output validity
+- Time-array behavior
+- Monotonic release behavior
+- Nanoparticle radius effects
+- Temperature effects
+- pH effects
+- Polymer degradation effects
+- Optimized configuration execution
+- Calibrated-release validity
 
-### Engineering Findings
-
-The sensitivity analysis showed that:
-
-- **Nanoparticle radius:** Larger particles generally produce slower drug release.
-- **Temperature:** Increasing temperature decreases predicted release time.
-- **Environmental pH:** Increasing pH decreases predicted release time within the modeled range.
-- **Polymer degradation:** Increasing degradation rate accelerates predicted drug release.
-- **Model calibration:** Version 3 substantially improves agreement with the experimental release profile.
-- **Optimization:** The identified parameter combination produced the lowest modeled error among the evaluated configurations.
-## How to Run
-
-### Requirements
-
-Python 3.10+ is recommended.
-
-Install the required Python packages:
-
-```bash
-pip install -r requirements.txt
-## Project Structure
+Current validation result:
 
 ```text
-nanoparticle-drug-delivery/
-│
-├── main.py
-├── model.py
-├── model_v2.py
-├── model_v3.py
-├── optimization.py
-├── sensitivity.py
-├── sensitivity_v3.py
-├── final_results_summary.py
-│
-├── experimental_data.csv
-├── validation_results.csv
-├── validation_v2_results.csv
-├── validation_v3_results.csv
-├── optimization_results.csv
-│
-├── sensitivity_v3_radius.csv
-├── sensitivity_v3_temperature.csv
-├── sensitivity_v3_pH.csv
-├── sensitivity_v3_degradation.csv
-│
-├── experimental_vs_model.png
-├── experimental_vs_model_v2.png
-├── experimental_vs_model_v3.png
-├── sensitivity_v3_radius.png
-├── sensitivity_v3_temperature.png
-├── sensitivity_v3_pH.png
-├── sensitivity_v3_degradation.png
-│
-└── FINAL_REPORT.md
+18 passed
+100% code coverage
