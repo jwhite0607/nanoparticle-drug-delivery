@@ -151,3 +151,11 @@ Current validation result:
 ```text
 18 passed
 100% code coverage
+## Reproducibility
+
+The project is designed to reproduce the model validation and analysis results from the command line.
+
+### Install dependencies
+
+```bash
+python -m pip install -r requirements.txt
